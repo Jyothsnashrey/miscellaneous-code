@@ -1,0 +1,10 @@
+[Unit]
+Description=example systemd service unit file.
+
+[Service]
+WorkingDirectory=/opt/prometheus-{{prometheus_version}}.linux-amd64
+ExecStart=/opt/prometheus-{{prometheus_version}}.linux-amd64/prometheus
+
+[Install]
+WantedBy=multi-user.target
+
