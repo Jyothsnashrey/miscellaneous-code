@@ -31,3 +31,5 @@ scrape_configs:
   - job_name: "ec2"
     static_configs:
       - targets: [ "10.10.2.113:9100", "10.10.1.74:9100"]
+        labels:
+          project: expense
