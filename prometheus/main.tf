@@ -44,6 +44,14 @@ resource "aws_route53_record" "prometheus-public" {
 
 }
 
+resource "aws_route53_record" "grafana" {  #since using the same server we are creating here or you need to repeats same for grafana
+  zone_id = "Z0280752N15KXNCY0H6Y"
+  name    = "grafana"
+  type    = "A"
+  ttl     = 30
+  records = [aws_instance.prometheus.public_ip]
+
+}
 
 resource "aws_iam_role" "main" {
     name         = "prometheus-role"
