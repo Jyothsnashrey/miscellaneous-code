@@ -15,8 +15,28 @@ groups:
           severity: critical
         annotations:
           summary: Memory Used Percentage in Critical state
+      - alert: CPUUsageWarning
+        expr: avg by (instance) ((1- (rate(node_cpu_seconds_total{mode="idle"}[5m]))) *100)  > 80
+        for: 1m
+        labels:
+          severity: critical
+        annotations:
+          summary: CPU usage in warning state
+      - alert: CPUUsageCritical
+        expr: avg by (instance) ((1- (rate(node_cpu_seconds_total{mode="idle"}[5m]))) *100) > 90
+        for: 1m
+        labels:
+          severity: critical
+        annotations:
+          summary: CPU usage in Critical state
 
-
+      - alert: NetworkPacketQueueorDropCount
+        expr: increase(node_ethtool_pps_allowance_exceeded[5m]) > 1
+        for: 1m
+        labels:
+          severity: critical
+        annotations:
+          summary: Network packets Queued / Dropped
 
 
 
