@@ -12,10 +12,10 @@ pipelines:
     stages:
       - apply:
           fetch_materials: true
-          approval:
-            type: manual
           jobs:
             apply:
+              approval:
+                type: manual
               timeout: 0
               tasks:
               - exec:

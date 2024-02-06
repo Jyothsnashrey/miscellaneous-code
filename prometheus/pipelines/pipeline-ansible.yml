@@ -7,19 +7,19 @@ pipelines:
       ansible:
         git: https://github.com/Jyothsnashrey/miscellaneous-code
         shallow_clone: false
-        auto_update: false
+        auto_update: true
         branch: main
     stages:
       - apply:
           fetch_materials: true
-          approval:
-            type: manual
           jobs:
             apply:
+              approval:
+                type: manual
               timeout: 0
               tasks:
               - exec:
-                  working_directory: prometheus
-                  command: bash
-                  arguments: ["ansible.sh"]
+                working_directory: prometheus
+                command: bash
+                arguments: ["ansible.sh"]
 
