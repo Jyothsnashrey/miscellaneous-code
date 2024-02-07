@@ -60,7 +60,7 @@
   when: out.status.ActiveState != "active"
 
 - name: copy file
-  ansible.builtin.template:
+  ansible.builtin.copy:
     src: grafana-expense.json
     dest: /tmp/grafana-expense.json
 
