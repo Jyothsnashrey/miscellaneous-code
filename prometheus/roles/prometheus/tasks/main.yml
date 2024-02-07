@@ -59,6 +59,10 @@
     enabled: yes  # we dont give daemon reload here because rpm file is taking care of that
   when: out.status.ActiveState != "active"
 
+- name: copy file
+  ansible.builtin.template:
+    src: grafana-expense-json
+    dest: /tmp/grafana-expense-json
 
 - name: Import Grafana dashboard
   community.grafana.grafana_dashboard:
@@ -67,7 +71,7 @@
    state: present
    commit_message: Updated by ansible
    overwrite: true
-   path:  "{{ lookup('ansible.builtin.file', 'grafana-expense.json') }}"
+   path:  /tmp/grafana-expense-json
 
 - name: Download Alert Manager
   ansible.builtin.unarchive:
