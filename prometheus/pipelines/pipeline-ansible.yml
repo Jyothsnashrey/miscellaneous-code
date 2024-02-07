@@ -9,6 +9,8 @@ pipelines:
         shallow_clone: false
         auto_update: true
         branch: main
+        includes:
+          - src/**/*.*  # if there is only change to this module that never exists this will not auto execute the script
     stages:
     - apply:
         fetch_materials: true
