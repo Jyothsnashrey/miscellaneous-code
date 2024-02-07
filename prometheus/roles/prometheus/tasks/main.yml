@@ -34,17 +34,36 @@
 #    host: 0.0.0.0
 #    delay: 10
 #    timeout: 5
+- name: check Grafana service
+  ansible.builtin.systemd_service:
+    name: grafana-server
+    state: restarted
+  register: out
+  ignore_errors: true
 
 - name: install Grafana
   ansible.builtin.dnf:
     name: https://dl.grafana.com/enterprise/release/grafana-enterprise-10.3.1-1.x86_64.rpm
     state: installed
+  when: out.ActiveState != "active"  # trying to skip grafana reinstall everytime of running this
+
 
 - name: start Grafana service
   ansible.builtin.systemd_service:
     name: grafana-server
     state: restarted
     enabled: yes  # we dont give daemon reload here because rpm file is taking care of that
+  when: out.ActiveState != "active"
+
+
+- name: Import Grafana dashboard
+  community.grafana.grafana_dashboard:
+   grafana_url: http://172.31.42.138:3000
+   grafana_api_key: glsa_iPznf8KMHXevnDhDAlaxdhqbQqE5YZzF_a387a4b6
+   state: present
+   commit_message: Updated by ansible
+   overwrite: true
+   path:  "{{ lookup('ansible.builtin.template', 'grafana-expense.json') }}"
 
 - name: Download Alert Manager
   ansible.builtin.unarchive:
