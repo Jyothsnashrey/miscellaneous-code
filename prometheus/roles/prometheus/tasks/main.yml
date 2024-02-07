@@ -49,7 +49,7 @@
   ansible.builtin.dnf:
     name: https://dl.grafana.com/enterprise/release/grafana-enterprise-10.3.1-1.x86_64.rpm
     state: installed
-  when: out.ActiveState != "active"  # trying to skip grafana reinstall everytime of running this
+  when: out.status.ActiveState != "active"  # trying to skip grafana reinstall everytime of running this
 
 
 - name: start Grafana service
@@ -57,7 +57,7 @@
     name: grafana-server
     state: restarted
     enabled: yes  # we dont give daemon reload here because rpm file is taking care of that
-  when: out.ActiveState != "active"
+  when: out.status.ActiveState != "active"
 
 
 - name: Import Grafana dashboard
