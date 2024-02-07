@@ -61,7 +61,7 @@
 
 - name: copy file
   ansible.builtin.template:
-    src: grafana-expense-json
+    src: grafana-expense.json
     dest: /tmp/grafana-expense.json
 
 - name: Import Grafana dashboard
