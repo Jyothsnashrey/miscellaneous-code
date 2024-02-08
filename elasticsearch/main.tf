@@ -21,10 +21,13 @@ resource "aws_instance" "elasticsearch" {
  // iam_instance_profile = aws_iam_instance_profile.main.name
   subnet_id            = "subnet-0658c46b905e4d8e2"
 
-  spot_options {
-    instance_interruption_behaviour= "stop"
-    spot_instance_type = "persistent"
-  }
+  instance_market_options{
+    spot_options {
+      instance_interruption_behaviour= "stop"
+      spot_instance_type = "persistent"
+   }
+ }
+
 
   tags = {
     Name = "elasticsearch"
