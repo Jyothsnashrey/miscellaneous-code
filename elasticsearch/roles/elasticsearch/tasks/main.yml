@@ -9,3 +9,21 @@
     state: installed
 
 
+- name: start Elasticsearch
+  ansible.builtin.systemd_service:
+    name: elasticsearch
+    state: started
+    enabled: yes
+
+
+- name: install Kibana
+  ansible.builtin.dnf:
+    name: kibana
+    state: installed
+
+
+- name: start kibana
+  ansible.builtin.systemd_service:
+    name: kibana
+    state: started
+    enabled: yes
