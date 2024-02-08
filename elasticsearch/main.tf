@@ -23,7 +23,7 @@ resource "aws_instance" "elasticsearch" {
 
   instance_market_options {
     spot_options {
-      instance_interruption_behaviour= "stop"
+      instance_interruption_behaviour = "stop"
       spot_instance_type = "persistent"
    }
  }
