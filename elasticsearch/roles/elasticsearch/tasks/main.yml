@@ -10,7 +10,7 @@
   ansible.builtin.dnf:
     name: "{{ item }}"
     state: installed
-    loop:
+  loop:
       - elasticsearch
       - kibana
       - logstash
@@ -28,7 +28,7 @@
     name: "{{ item }}"
     state: restarted
     enabled: yes
-    loop:
+  loop:
       - elasticsearch
       - kibana
       - logstash
