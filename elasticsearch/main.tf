@@ -45,4 +45,13 @@ resource "aws_route53_record" "elasticsearch" {
 
 }
 
+resource "aws_route53_record" "logstash" {
+  zone_id = "Z0280752N15KXNCY0H6Y"
+  name    = "logstash"
+  type    = "A"
+  ttl     = 30
+  records = [aws_instance.elasticsearch.private_ip]
+
+}
+
 
