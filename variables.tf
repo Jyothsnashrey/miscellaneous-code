@@ -7,5 +7,17 @@ variable "tools" {
 
     }
   }
+  elasticsearch = {
+    instance_type = "m6in.large"
+    port          = 80
+    priority = 101   # Load balancer Priority
 
-}
+  }
+  prometheus = {
+    instance_type = "t3.small"
+    port          = 9090
+    priority      = 102
+  }
+
+
+  }
