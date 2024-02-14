@@ -1,6 +1,6 @@
 format_version: 10
 pipelines:
-  alb remove:
+  alb-remove:
     group: tools
     label_template: "${COUNT}"
     materials:
