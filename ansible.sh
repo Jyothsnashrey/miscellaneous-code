@@ -5,6 +5,6 @@ tool_name=$1
 
 IP=$(aws ec2 describe-instances --filters Name=tag:Name,Values=$tool_name --query 'Reservations[*].Instances[*].PrivateIpAddress' --output text)
 
-ansible-playbook -i $(IP), playbook.yml -e ansible_user=$ssh_username -e ansible_password=$ssh_password -e tool_name=$tool_name
+ansible-playbook -i ${IP}, playbook.yml -e ansible_user=$ssh_username -e ansible_password=$ssh_password -e tool_name=$tool_name
 
 
