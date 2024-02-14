@@ -1,3 +1,6 @@
+- name: set Hostname
+  ansible.builtin.shell: set-hostname sonarqube
+
 - name: add SonarQube user
   ansible.builtin.user:
     name: sonarqube
