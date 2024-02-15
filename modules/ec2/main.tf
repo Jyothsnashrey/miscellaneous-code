@@ -21,9 +21,7 @@ resource "aws_instance" "ec2" {
 
 
 resource "aws_route53_record" "record" {
-  count   = length(var.dns_name)
   zone_id = "Z0280752N15KXNCY0H6Y"
-  name    = element(var.dns_name,count.index )
   name    = var.tool
   type    = "CNAME"
   ttl     = 30
@@ -31,7 +29,6 @@ resource "aws_route53_record" "record" {
 
 }
 resource "aws_lb_listener_rule" "rule" {
-  count   = length(var.dns_name)
   listener_arn = var.listener_arn
   priority     = var.priority
 
@@ -42,7 +39,7 @@ resource "aws_lb_listener_rule" "rule" {
 
   condition {
     host_header {
-      values = ["${element(var.dns_names,count.index)}.jyothsnashrey.online"]
+      values = ["${var.tool}.jyothsnashrey.online"]
     }
   }
 }
