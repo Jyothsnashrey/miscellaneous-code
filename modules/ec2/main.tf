@@ -31,6 +31,7 @@ resource "aws_route53_record" "record" {
 
 }
 resource "aws_lb_listener_rule" "rule" {
+  count   = length(var.dns_name)
   listener_arn = var.listener_arn
   priority     = var.priority
 
@@ -41,7 +42,7 @@ resource "aws_lb_listener_rule" "rule" {
 
   condition {
     host_header {
-      values = ["${var.tool}.jyothsnashrey.online"]
+      values = ["${element(var.dns_names,count.index)}.jyothsnashrey.online"]
     }
   }
 }
