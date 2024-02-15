@@ -21,7 +21,9 @@ resource "aws_instance" "ec2" {
 
 
 resource "aws_route53_record" "record" {
+  count   = length(var.dns_name)
   zone_id = "Z0280752N15KXNCY0H6Y"
+  name    = element(var.dns_name,count.index )
   name    = var.tool
   type    = "CNAME"
   ttl     = 30
