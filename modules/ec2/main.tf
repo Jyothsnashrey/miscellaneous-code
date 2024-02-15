@@ -31,7 +31,7 @@ resource "aws_route53_record" "record" {
 resource "aws_route53_record" "record-private-ec2" {
   zone_id = "Z0280752N15KXNCY0H6Y"
   name    = "${var.tool}-int"
-  type    = "CNAME"
+  type    = "A"
   ttl     = 30
   records = [aws_instance.ec2.private_ip] # creating 2 DNS rec0rds one for ALB public IP communication other is Private Ip for internal communication
 
