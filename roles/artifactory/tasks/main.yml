@@ -8,8 +8,8 @@
 - name: Install Java
   ansible.builtin.dnf:
     name:
-    - java java-17-openjdk
-    - jfrog-artifactory-oss.x86_64
+      - java java-17-openjdk
+      - jfrog-artifactory-oss.x86_64
     state: installed
 
 - name: Start Artifactory service
