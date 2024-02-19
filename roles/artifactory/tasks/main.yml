@@ -1,20 +1,21 @@
-- name: copy jfrog repo
+- name: Copy Jfrog repo
   ansible.builtin.template:
     src: artifactory.repo
     dest: /etc/yum.repos.d/artifactory.repo
 
-- name: Install Jfrog and java
+- name: Install Jfrog and Java
   ansible.builtin.dnf:
     name:
-      - java java-17-openjdk
-      - jfrog-artifactory-oss.x86_64
+      - java-17-openjdk
+      - jfrog-artifactory-oss
     state: installed
 
-- name: Start Artifactory service
+- name: Start Artifactory Service
   ansible.builtin.systemd_service:
     name: artifactory
     state: started
     enabled: yes
+
 
 
 
