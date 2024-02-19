@@ -4,8 +4,6 @@
     dest: /etc/yum.repos.d/artifactory.repo
 
 - name: Install Jfrog and java
-
-- name: Install Java
   ansible.builtin.dnf:
     name:
       - java java-17-openjdk
