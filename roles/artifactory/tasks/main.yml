@@ -1,6 +1,6 @@
 - name: copy jfrog repo
   ansible.builtin.template:
-    url: artifactory.repo
+    src: artifactory.repo
     dest: /etc/yum.repos.d/artifactory.repo
 
 - name: Install Jfrog and java
