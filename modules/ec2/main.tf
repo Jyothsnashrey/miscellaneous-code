@@ -92,5 +92,29 @@ resource "aws_iam_instance_profile" "main" {
   name = "${var.tool}-role"
   role = aws_iam_role.main.name
 }
+resource "aws_iam_policy" "main" {
+  count       = length(var.policy_list)
+  name        = "${var.tool}-role-policy"
+  path        = "/"
+  description = "${var.tool}-role-policy"
+
+
+  policy = jsonencode({
+    Version = "2012-10-17"
+    Statement = [
+      {
+        Action   = var.policy_list
+        Effect   = "Allow"
+        Resource = "*"
+      },
+    ]
+  })
+}
+
+resource "aws_iam_role_policy_attachment" "attach" {
+  count      = length(var.policy_list)
+  policy_arn = aws_iam_policy.main[0].arn
+  role       = aws_iam_role.main.name
+}
 
 

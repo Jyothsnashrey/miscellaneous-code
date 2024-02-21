@@ -8,4 +8,5 @@ variable "vpc_id" {
   default = "vpc-02f449da10fa2d3cb"
 }
 variable "priority" {}
+variable "policy_list" {}
 
