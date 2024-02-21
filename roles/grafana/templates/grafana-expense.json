@@ -25,7 +25,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "f2fe8600-2be3-442f-9d9e-55c98381b50a"
+        "uid": "e9f9305c-0ef9-4061-a02f-70f8b1a44b4a"
       },
       "fieldConfig": {
         "defaults": {
@@ -94,7 +94,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "f2fe8600-2be3-442f-9d9e-55c98381b50a"
+            "uid": "e9f9305c-0ef9-4061-a02f-70f8b1a44b4a"
           },
           "editorMode": "code",
           "expr": "node_systemd_unit_state{exported_name=\"nginx.service\",state=\"active\"} ",
@@ -106,7 +106,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "f2fe8600-2be3-442f-9d9e-55c98381b50a"
+            "uid": "e9f9305c-0ef9-4061-a02f-70f8b1a44b4a"
           },
           "editorMode": "code",
           "expr": "node_systemd_unit_state{exported_name=\"backend.service\",state=\"active\"} ",
@@ -123,7 +123,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "f2fe8600-2be3-442f-9d9e-55c98381b50a"
+        "uid": "e9f9305c-0ef9-4061-a02f-70f8b1a44b4a"
       },
       "fieldConfig": {
         "defaults": {
@@ -204,7 +204,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "f2fe8600-2be3-442f-9d9e-55c98381b50a"
+            "uid": "e9f9305c-0ef9-4061-a02f-70f8b1a44b4a"
           },
           "editorMode": "code",
           "expr": "avg by (instance) (100-(rate(node_cpu_seconds_total{mode=\"idle\"}[1m]) *100))",
@@ -220,7 +220,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "f2fe8600-2be3-442f-9d9e-55c98381b50a"
+        "uid": "e9f9305c-0ef9-4061-a02f-70f8b1a44b4a"
       },
       "fieldConfig": {
         "defaults": {
@@ -301,7 +301,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "f2fe8600-2be3-442f-9d9e-55c98381b50a"
+            "uid": "e9f9305c-0ef9-4061-a02f-70f8b1a44b4a"
           },
           "editorMode": "code",
           "expr": "(1- ((node_memory_MemFree_bytes + node_memory_Buffers_bytes + node_memory_Cached_bytes) / node_memory_MemTotal_bytes)) * 100  ",
@@ -317,7 +317,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "f2fe8600-2be3-442f-9d9e-55c98381b50a"
+        "uid": "e9f9305c-0ef9-4061-a02f-70f8b1a44b4a"
       },
       "fieldConfig": {
         "defaults": {
@@ -398,7 +398,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "f2fe8600-2be3-442f-9d9e-55c98381b50a"
+            "uid": "e9f9305c-0ef9-4061-a02f-70f8b1a44b4a"
           },
           "editorMode": "code",
           "expr": " increase(node_ethtool_pps_allowance_exceeded[5m])",
@@ -414,7 +414,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "f2fe8600-2be3-442f-9d9e-55c98381b50a"
+        "uid": "e9f9305c-0ef9-4061-a02f-70f8b1a44b4a"
       },
       "fieldConfig": {
         "defaults": {
@@ -483,7 +483,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "f2fe8600-2be3-442f-9d9e-55c98381b50a"
+            "uid": "e9f9305c-0ef9-4061-a02f-70f8b1a44b4a"
           },
           "editorMode": "code",
           "expr": "up{job=\"ec2\"}",
