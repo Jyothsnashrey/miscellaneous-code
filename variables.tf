@@ -42,6 +42,12 @@ variable "tools" {
       priority      = 105
       policy_list   =[]
     }
+    load-runner = {
+      instance_type = "t3.small"
+      port          = 80
+      priority      = 106
+      policy_list   =[]
+    }
 
   }
 }
