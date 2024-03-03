@@ -48,6 +48,12 @@ variable "tools" {
       priority      = 106
       policy_list   =[]
     }
+    jenkins = {
+      instance_type = "t3.small"
+      port          = 8080
+      priority      = 107
+      policy_list   =[]
+    }
 
   }
 }
